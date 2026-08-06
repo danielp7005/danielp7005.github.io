@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashspace — We build apps people actually open</title>
+<meta name="description" content="Dashspace designs and builds mobile and web apps, from first sketch to the App Store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <a href="#top" class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <span class="dot"></span>
+    </span>
+    Dashspace
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#stats">Numbers</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn-small">Start a project</a>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Product studio — apps, dashboards, tools</p>
+      <h1>We build apps.<br>You watch the numbers<br>climb.</h1>
+      <p class="hero-sub">Dashspace is a small studio that designs and ships mobile and web apps for founders and teams who need it done right the first time — from the first sketch to the App Store listing.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a project</a>
+        <a href="#work" class="btn btn-ghost">See the work ↓</a>
+      </div>
+    </div>
+
+    <div class="console" role="img" aria-label="Illustrative dashboard showing live app metrics">
+      <div class="console-bar">
+        <span class="console-dot red"></span>
+        <span class="console-dot amber"></span>
+        <span class="console-dot green"></span>
+        <span class="console-title">dashspace.app — live</span>
+      </div>
+
+      <div class="widget widget-gauge">
+        <p class="widget-label">Uptime</p>
+        <svg viewBox="0 0 120 70" class="gauge" aria-hidden="true">
+          <path d="M10 65 A50 50 0 0 1 110 65" class="gauge-track"/>
+          <path d="M10 65 A50 50 0 0 1 110 65" class="gauge-fill"/>
+          <line x1="60" y1="65" x2="90" y2="27" class="gauge-needle"/>
+          <circle cx="60" cy="65" r="4" class="gauge-hub"/>
+        </svg>
+        <p class="widget-value">99.98<span>%</span></p>
+      </div>
+
+      <div class="widget widget-spark">
+        <p class="widget-label">Weekly active users</p>
+        <svg viewBox="0 0 220 60" class="spark" aria-hidden="true">
+          <polyline points="0,45 25,40 50,42 75,30 100,33 125,20 150,24 175,10 200,14 220,4" class="spark-line"/>
+        </svg>
+        <p class="widget-value">18,204 <span class="up">▲ 12.4%</span></p>
+      </div>
+
+      <div class="widget widget-status">
+        <p class="widget-label">Build status</p>
+        <p class="status-row"><span class="status-dot"></span> Deployed to production</p>
+        <p class="status-sub">v2.4.1 · 3m ago</p>
+      </div>
+
+      <div class="widget widget-counter">
+        <p class="widget-label">Sessions today</p>
+        <p class="widget-value counter" data-target="47280">0</p>
+        <p class="widget-foot">across 4 platforms</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS / TRUST STRIP -->
+  <section class="strip" aria-label="Types of products we build">
+    <span>iOS</span><span>Android</span><span>Web apps</span><span>Internal tools</span><span>APIs</span><span>Design systems</span>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2>Four apps, four different jobs to do.</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-top">
+          <span class="tag">Fintech · iOS/Android</span>
+          <span class="metric">4.9★<span>App Store</span></span>
+        </div>
+        <h3>Ledgerly</h3>
+        <p>Personal finance app that turns bank feeds into a plain-language weekly briefing. Built for a two-person founding team, now used by 60,000 people.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="tag">Logistics · Web</span>
+          <span class="metric">−38%<span>dispatch time</span></span>
+        </div>
+        <h3>Routeframe</h3>
+        <p>A dispatch dashboard for a regional courier fleet. Replaced three spreadsheets and a whiteboard with one live map.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="tag">Healthcare · iOS</span>
+          <span class="metric">12wk<span>concept to launch</span></span>
+        </div>
+        <h3>Recall</h3>
+        <p>Medication reminders for caregivers managing more than one person's schedule. Designed around missed-dose recovery, not streaks.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="tag">Internal tooling · Web</span>
+          <span class="metric">6→1<span>tools merged</span></span>
+        </div>
+        <h3>Fieldset</h3>
+        <p>An internal ops console for a 200-person retailer, consolidating six legacy tools into one permissioned dashboard.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="section-head">
+      <p class="eyebrow">How a project runs</p>
+      <h2>Same four phases, every time.</h2>
+    </div>
+
+    <ol class="timeline">
+      <li>
+        <span class="phase">Phase 01</span>
+        <h3>Discovery</h3>
+        <p>Two weeks to define the one job the app has to do, and the one metric that proves it's working.</p>
+      </li>
+      <li>
+        <span class="phase">Phase 02</span>
+        <h3>Design</h3>
+        <p>Working screens in your hands within days, not a deck of concepts. We design in the medium people will actually use.</p>
+      </li>
+      <li>
+        <span class="phase">Phase 03</span>
+        <h3>Build</h3>
+        <p>Weekly demos on a real device or a real URL. No "trust us, it's almost done" — you see it running throughout.</p>
+      </li>
+      <li>
+        <span class="phase">Phase 04</span>
+        <h3>Launch &amp; hold</h3>
+        <p>We ship it, watch the dashboard with you for the first month, and hand over something your own team can maintain.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="stats">
+    <div class="stat">
+      <p class="stat-num">37</p>
+      <p class="stat-label">Apps shipped</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">2.1M+</p>
+      <p class="stat-label">People using them monthly</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">99.9%</p>
+      <p class="stat-label">Average uptime, last 12 months</p>
+    </div>
+    <div class="stat">
+      <p class="stat-num">8</p>
+      <p class="stat-label">People on the team</p>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote">
+    <div class="quote-panel">
+      <p class="quote-label">// client note</p>
+      <p class="quote-text">"They shipped in twelve weeks what our last agency quoted eight months for, and it hasn't gone down once."</p>
+      <p class="quote-attr">— Founder, Recall</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Have an app that needs building?</h2>
+    <p>Tell us what it needs to do. We'll tell you honestly whether it's a twelve-week project or a two-week one.</p>
+    <div class="hero-actions">
+      <a href="mailto:hello@dashspace.app" class="btn btn-primary">hello@dashspace.app</a>
+      <a href="#top" class="btn btn-ghost">Back to top ↑</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-top">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"><span class="dot"></span></span>
+      Dashspace
+    </a>
+    <div class="footer-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:hello@dashspace.app">Email</a>
+    </div>
+  </div>
+  <p class="footer-fine">© <span id="year"></span> Dashspace. Built for teams who'd rather ship than meet.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Animate the session counter once it's in view
+  const counterEl = document.querySelector('.counter');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    if (prefersReduced) { el.textContent = target.toLocaleString(); return; }
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (counterEl) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(counterEl);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(counterEl);
+  }
+</script>
+
+</body>
+</html>
