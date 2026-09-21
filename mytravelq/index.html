@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyTravelQ — Plan future trips simply</title>
+  <meta name="description" content="MyTravelQ is a personal travel wishlist and timeline planner from Dashspace LLC." />
+  <style>
+    :root{
+      --bg:#f6f4ff;
+      --bg2:#fbfaff;
+      --card:#ffffff;
+      --ink:#20234a;
+      --muted:#686e8e;
+      --accent:#6c5ce7;
+      --accent2:#ece8ff;
+      --accent3:#c5fff1;
+      --line:#e7e4f6;
+      --shadow:0 22px 60px rgba(76,61,149,.12);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,var(--bg2),var(--bg));color:var(--ink);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0 14px;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+    .logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#6c5ce7 0%,#8d83ff 100%);display:grid;place-items:center;color:white;font-size:20px;font-weight:900;box-shadow:0 12px 26px rgba(108,92,231,.3)}
+    .navlinks{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:14px}
+    .navlinks .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700}
+
+    .hero{padding:34px 0 66px;display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:var(--accent);padding:8px 13px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.02em}
+    .hero h1{font-size:clamp(42px,6vw,72px);line-height:1.01;letter-spacing:-.045em;margin:18px 0 16px;max-width:700px}
+    .hero p{font-size:18px;color:var(--muted);max-width:620px;margin:0 0 24px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+    .cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:16px;font-weight:800}
+    .cta.primary{background:var(--accent);color:#fff;box-shadow:0 16px 30px rgba(108,92,231,.22)}
+    .cta.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .mini-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .mini-points span{background:rgba(255,255,255,.8);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px;font-weight:700}
+
+    .hero-visual{position:relative;min-height:720px}
+    .glow{position:absolute;inset:80px 40px auto auto;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at center, rgba(108,92,231,.16), rgba(108,92,231,0) 70%);pointer-events:none}
+    .phone{position:absolute;background:#fff;border:1px solid rgba(224,220,245,.9);border-radius:34px;padding:12px;box-shadow:var(--shadow)}
+    .phone img{border-radius:26px}
+    .phone.main{width:295px;top:38px;right:38px;transform:rotate(3deg)}
+    .phone.left{width:240px;top:225px;left:0;transform:rotate(-8deg)}
+    .phone.right{width:230px;bottom:28px;right:0;transform:rotate(8deg)}
+    .badge{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 10px 28px rgba(57,48,120,.08);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;max-width:240px}
+    .badge b{display:block;font-size:14px;letter-spacing:-.01em}
+    .badge small{display:block;color:var(--muted);font-size:12px;line-height:1.4}
+    .badge.two{right:70px;bottom:210px}
+    .icon-circle{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#efeaff,#dbfff6);display:grid;place-items:center;font-size:18px;flex:0 0 auto}
+
+    .section{padding:70px 0}
+    .section-head{max-width:760px;margin-bottom:24px}
+    .eyebrow{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--accent);margin-bottom:10px}
+    .section h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.035em;line-height:1.05;margin:0 0 12px}
+    .section p.lead{margin:0;color:var(--muted);font-size:17px}
+
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .feature-card{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:0 12px 30px rgba(57,48,120,.06)}
+    .feature-card .topicon{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#efeaff,#e7fffa);display:grid;place-items:center;font-size:22px;margin-bottom:14px}
+    .feature-card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em}
+    .feature-card p{margin:0;color:var(--muted)}
+
+    .showcase{display:grid;grid-template-columns:1.02fr .98fr;gap:36px;align-items:center;margin-top:28px;padding:8px 0 26px}
+    .showcase-copy{padding:10px 4px}
+    .showcase-copy h3{margin:0 0 12px;font-size:clamp(28px,3.6vw,42px);line-height:1.08;letter-spacing:-.035em}
+    .showcase-copy p{margin:0;color:var(--muted);font-size:17px;max-width:560px}
+    .showcase-copy ul{padding-left:19px;color:var(--muted);margin:20px 0 0}
+    .showcase-copy li{margin:8px 0}
+    .timeline-visual{position:relative;height:430px;display:flex;justify-content:center;align-items:flex-start;overflow:hidden}
+    .timeline-visual::after{content:"";position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,rgba(246,244,255,0),var(--bg));pointer-events:none}
+    .timeline-visual img{width:46%;max-width:315px;height:auto;border-radius:26px;box-shadow:0 18px 38px rgba(65,54,135,.13)}
+
+    .screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 28px rgba(57,48,120,.06)}
+    .panel .preview{background:linear-gradient(180deg,#f7f5ff,#fff);padding:18px 18px 10px;display:flex;justify-content:center;height:360px;overflow:hidden;position:relative}
+    .panel .preview::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none}
+    .panel .preview img{border-radius:22px;box-shadow:0 10px 24px rgba(60,50,130,.08);width:52%;max-width:220px;height:auto;align-self:flex-start}
+    .panel .content{padding:20px 22px 24px}
+    .panel h3{margin:0 0 8px;font-size:22px;letter-spacing:-.025em}
+    .panel p{margin:0;color:var(--muted)}
+
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .step{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:24px;padding:24px;position:relative;overflow:hidden}
+    .step::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;background:radial-gradient(circle at center, rgba(108,92,231,.12), rgba(108,92,231,0) 70%)}
+    .step .num{font-size:12px;font-weight:900;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}
+    .step h3{margin:0 0 8px;font-size:22px;letter-spacing:-.02em}
+    .step p{margin:0;color:var(--muted)}
+
+    .support{margin:74px 0 70px;background:linear-gradient(135deg,#1f2147,#2c2f68);color:white;border-radius:32px;padding:34px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;box-shadow:0 20px 40px rgba(31,33,71,.25)}
+    .support h2{margin:0 0 8px;font-size:36px;line-height:1.05;letter-spacing:-.03em}
+    .support p{margin:0;color:#d7daf3;max-width:640px}
+    .support .cta{background:white;color:var(--ink)}
+
+    .footer{padding:0 0 44px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+
+    @media (max-width: 980px){
+      .hero,.showcase{grid-template-columns:1fr}
+      .screen-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-visual{min-height:760px;margin-top:12px}
+      .phone.main{right:40px}
+      .feature-grid,.steps{grid-template-columns:1fr}
+    }
+    @media (max-width: 760px){
+      .nav{padding-top:18px}
+      .navlinks{display:none}
+      .wrap{padding:0 18px}
+      .hero{padding-top:18px;gap:18px}
+      .hero p{font-size:17px}
+      .hero-visual{min-height:630px}
+      .phone.main{width:225px;right:12px;top:58px}
+      .phone.left{width:180px;left:0;top:240px}
+      .phone.right{width:175px;right:0;bottom:34px}
+      .badge{max-width:200px;padding:12px 14px}
+      .badge.two{right:16px;bottom:192px}
+      .section{padding:50px 0}
+      .support h2{font-size:30px}
+      .timeline-visual{height:390px}
+      .timeline-visual img{width:58%;max-width:280px}
+      .screen-grid{grid-template-columns:1fr}
+      .panel .preview{height:330px}
+      .panel .preview img{width:48%;max-width:220px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="../">
+        <span class="logo">D</span>
+        <span>Dashspace</span>
+      </a>
+      <div class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="btn" href="mailto:support@dashspace.io?subject=MyTravelQ%20Support">Support</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <span class="pill">✈️ PERSONAL TRAVEL PLANNER</span>
+        <h1>Plan future trips with a timeline built for dream destinations.</h1>
+        <p>MyTravelQ helps you save destinations, organize them by month and year, and build a travel timeline you can actually look forward to.</p>
+        <div class="cta-row">
+          <a class="cta primary" href="#screens">See the app</a>
+          <a class="cta secondary" href="privacy.html">Privacy policy</a>
+        </div>
+        <div class="mini-points">
+          <span>Wishlist + timeline</span>
+          <span>Organized by year</span>
+          <span>Best months & activities</span>
+          <span>Simple, visual planning</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="badge two"><span class="icon-circle">🎒</span><div><b>Flexible planning</b><small>Save now, schedule later, and filter trips your way.</small></div></div>
+        <div class="phone main"><img src="assets/timeline.png" alt="MyTravelQ timeline screen" /></div>
+        <div class="phone left"><img src="assets/all-trips.png" alt="MyTravelQ all trips screen" /></div>
+        <div class="phone right"><img src="assets/trip-details.png" alt="MyTravelQ trip details screen" /></div>
+      </div>
+    </header>
+
+    <section id="features" class="section">
+      <div class="section-head">
+        <div class="eyebrow">WHY MYTRAVELQ</div>
+        <h2>Built to make travel planning feel clear, visual, and personal.</h2>
+        <p class="lead">Instead of keeping scattered ideas in notes, tabs, or your head, MyTravelQ brings future trips into one simple planning flow.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="topicon">📍</div>
+          <h3>Save places you want to visit</h3>
+          <p>Create a personal travel wishlist with destination details, best months, activity tags, and flight-length info.</p>
+        </article>
+        <article class="feature-card">
+          <div class="topicon">🪄</div>
+          <h3>Schedule trips when you’re ready</h3>
+          <p>Move destinations onto your timeline by assigning a month and year—ideal for birthdays, seasons, and long-term ideas.</p>
+        </article>
+        <article class="feature-card">
+          <div class="topicon">🧭</div>
+          <h3>Find the right trip faster</h3>
+          <p>Filter by status or flight length and quickly narrow your list when you’re deciding what fits next.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="screens" class="section">
+      <div class="section-head">
+        <div class="eyebrow">APP EXPERIENCE</div>
+        <h2>See the app in action.</h2>
+        <p class="lead">A clean interface, soft color palette, and focused screens keep travel planning simple without losing useful detail.</p>
+      </div>
+
+      <div class="showcase">
+        <div class="showcase-copy">
+          <h3>Plan trips across multiple years</h3>
+          <p>The Timeline gives you a bigger-picture view of upcoming travel so you can spread out ideas, compare seasons, and see what’s coming next.</p>
+          <ul>
+            <li>Organize trips visually by year and month</li>
+            <li>Keep future plans easy to scan at a glance</li>
+            <li>Build a travel queue that feels motivating, not cluttered</li>
+          </ul>
+        </div>
+        <div class="timeline-visual">
+          <img src="assets/timeline.png" alt="Timeline screen showing trips planned across multiple years" />
+        </div>
+      </div>
+
+      <div class="screen-grid">
+        <article class="panel">
+          <div class="preview"><img src="assets/all-trips.png" alt="All trips screen" /></div>
+          <div class="content">
+            <h3>Keep every trip in one place</h3>
+            <p>Browse your saved destinations, see quick trip details, and manage your travel ideas from a single organized list.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="preview"><img src="assets/trip-details.png" alt="Trip details screen" /></div>
+          <div class="content">
+            <h3>Customize each trip</h3>
+            <p>Add notes, assign best months, set trip length, and choose activity tags so every destination feels tailored to you.</p>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="preview"><img src="assets/schedule.png" alt="Schedule trip screen" /></div>
+          <div class="content">
+            <h3>Save now, schedule later</h3>
+            <p>Add a destination to your wishlist first, then assign a month and year when you’re ready to place it on your timeline.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>A simple three-step flow.</h2>
+        <p class="lead">MyTravelQ is designed to help you move from inspiration to an actual travel plan without unnecessary complexity.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <div class="num">STEP 1</div>
+          <h3>Build your wishlist</h3>
+          <p>Save interesting destinations and capture the details that matter to you, from best travel months to trip type.</p>
+        </article>
+        <article class="step">
+          <div class="num">STEP 2</div>
+          <h3>Compare what fits next</h3>
+          <p>Filter and review your saved trips to decide what works best for the season, your schedule, or your travel style.</p>
+        </article>
+        <article class="step">
+          <div class="num">STEP 3</div>
+          <h3>Place it on your timeline</h3>
+          <p>Assign a month and year so your ideas become a visible future plan you can keep building over time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="support">
+      <div>
+        <h2>Need support or have a question?</h2>
+        <p>For help with MyTravelQ, feature questions, or privacy-related requests, contact Dashspace and we’ll be happy to help.</p>
+      </div>
+      <a class="cta" href="mailto:support@dashspace.io?subject=MyTravelQ%20Support">Contact support</a>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 Dashspace LLC. MyTravelQ is a product of Dashspace.</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:support@dashspace.io">Support</a>
+        <a href="../privacy.html">Dashspace Website Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
